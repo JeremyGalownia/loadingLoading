@@ -1,0 +1,75 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000;
+	/*color: #fff;*/
+	font-family: monospace;
+}
+
+span.text {
+	font-size: 1.35rem;
+	background: linear-gradient(90deg, #777 0%, #222 25%, #aaa 75%, #777 100%);
+	background-size: 200% 100%;
+	background-position: 0% 50%;
+	background-clip: text;
+	color: transparent;
+	animation: grad-slide 3s linear infinite;
+}
+#loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	padding: 4rem;
+
+	.c {
+		--r: 20px;
+
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background: #eee;
+		border-radius: 50%;
+
+		animation: spin 1.5s linear 3 forwards;
+
+		transform: rotate(calc(var(--i) * 10deg)) translate(var(--r));
+	}
+}
+
+@keyframes spin {
+	0% {
+		rotate: calc(0deg);
+	}
+	25% {
+		rotate: calc(90deg + calc(16 - var(--i)) * -3deg);
+	}
+	50% {
+		rotate: calc(164deg + calc(16 - var(--i)) * 5deg);
+	}
+	75% {
+		rotate: calc(254deg + calc(16 - var(--i)) * 3deg);
+	}
+	100% {
+		rotate: calc(360deg);
+	}
+}
+
+@keyframes grad-slide {
+	0% {
+		background-position: 200% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
